@@ -106,3 +106,13 @@ alert( typedef(선언되지않은 변수명) ) ->> undefined
 ```Boolean()``` : 어떤 변수를 boolean 타입으로 변환   
 ```Boolean()``` 의 경우 ```0 null undefined NaN "" ``` 을 인자로 받을 경우 false 로 변환하며, 그 외는 모두 true로 변환한다.  
 
+
+# ECMA6 
+## 템플릿 문자열 
+var name = "jeonka" ;  
+이 변수를 출력하기 위해서는?  
+기존 >   
+```alert("나의 이름은 : "+ name +" 입니다 ."");```  
+ECMA6 >  
+```alert(`나의 이름은 ${name} 입니다.`)```  
+즉, ECMA6 에서는 **``** 로 감싼 문자열 내부에 **${}** 를 사용하고 안에 표현식을 넣으면 표현식이 계산되어 들어간다.
