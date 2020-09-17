@@ -11,7 +11,7 @@
 ## 키워드
 모든 브라우저에서 지원|ECMAscript6,7 에서 사용중인 키워드
 --|--
-```continue do in instacneof var with```  | ```debugger export let yield ```  
+```continue, do, in, instacneof, var, with```  | ```debugger, export, let, yield ```  
 
 ## 식별자
 자바스크립트에서 이름을 붙일 때 사용하는단어  
