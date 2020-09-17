@@ -119,3 +119,59 @@ function test(a,b=22,c=33){
 test(1,2); 
 ```
 와 같이 수정할 수 있다.  
+
+
+
+
+## 전개 연산자
+전개 연산자는 **가변인자**를 만들 때 사용한다.  
+먼저 예시 코드이다.  
+```
+function test(a, b, ...numbers){
+	console.log("numbers[0] : "+numbers[0]);
+	console.log("a : " + a);
+	console.log("numbers : "+numbers)
+}
+test(1,2,3,4,5,6);
+```
+전개연산자의 이름을 `arguments` 라고 할 경우 기존 `arguments` 객체를 덮어버리기 때문에 다른 이름을 사용함  
+출력값 >  
+**numbers[0] : 3  
+a : 1  
+numbers : 3,4,5,6**  
+
+전개연산자를 다음과 같이 활용할 수 있다.  
+```
+function test(a,b,c,d){
+	console.log(`${a} ${b} ${c} ${d}`);
+}
+var arr = [1,2,3,4];
+test(...arr);
+
+/*
+var arr1 = [12,34];
+var arr2 = [56,78];
+test(...arr1, ...arr2); // 이와같은 코드도 가능하다.
+*/
+```
+출력값 : **1 2 3 4**  수
+
+
+## 화살표 함수
+
+### 기본 형태 
+익명함수인  `function(){}` 를 간단히 표현한 것으로  `() => {}` 와 같이 쓴다.  
+그러나 화살표 함수의 경우 `this` 키워드의 의미가 다르다.  
+익명함수 : 함수 자체에 바인딩 되어있는 객체  
+화살표함수 : 전역객체  
+따라서 **화살표함수** 에서 쓰고자 하는 `this`의 경우 다른 변수로 **치환** 해서 사용해야 한다.  
+
+만약 중괄호 내 **코드가 한줄** 이라면 **중괄호를 생략**하며 `return` 키워드를 **사용하지 않아도** 값을 반환한다.  
+
+아래는 예시이다.  
+```
+const multiply = (a,b)=> a*b;
+console.log(multiply(1,2));
+console.log(multiply(3,4));
+```
+출력값 : **2 12**
