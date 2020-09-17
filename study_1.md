@@ -58,12 +58,12 @@ alert(30 > 20 > 10) ; 의 결과는 ?
 ### 변수의 생성과 사용
 var 키워드를 통해 변수를 선언 ( type 무관 )
 ```
-String
-숫자
-Boolean
-var functionVar = function() {};
-var oobjectVar = {};
-undefined 
+String // 문자열
+숫자 
+Boolean // 참거짓
+var functionVar = function() {}; // 함수
+var oobjectVar = {}; // 객체
+undefined  
 ```
 
 ### 복합 대입 연산자
