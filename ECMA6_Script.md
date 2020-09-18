@@ -267,3 +267,29 @@ a:AA
 b:b  
 a:a  
 b:b**  
+
+## 전개 연산자를 이용한 배열 복제
+
+앞서 말했듯이 **객체 및 배열은 깊은 복사**를 할 경우 `clone()` 을 직접 해야한다.    
+그러나 **배열**의 경우 조금 더 쉽게 할 수 있다.  
+```
+const oriArr = [1,2,3];
+const newArr = [...oriArr]; // 전개 연산자를 이용하여 복제한다.
+
+oriArr[0] = 10;
+console.log(`oriArr : ${oriArr} , newArr : ${newArr}`);
+```
+출력 > **oriArr : 10,2,3 , newArr : 1,2,3**  
+
+### 배열 병합
+
+전개 연산자를 이용하면 **배열 복제** 가 가능하다.
+```
+const arrA = [1,2,3];
+const arrB = [4,5,6];
+
+const newArr = [...arrA,...arrB];
+console.log(`newArr : ${newArr}`);
+```
+출력 >  **newArr : 1,2,3,4,5,6**  
+
