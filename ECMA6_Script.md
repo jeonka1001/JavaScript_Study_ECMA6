@@ -283,7 +283,7 @@ console.log(`oriArr : ${oriArr} , newArr : ${newArr}`);
 
 ### 배열 병합
 
-전개 연산자를 이용하면 **배열 복제** 가 가능하다.
+전개 연산자를 이용하면 **배열 병합** 이 가능하다.
 ```
 const arrA = [1,2,3];
 const arrB = [4,5,6];
