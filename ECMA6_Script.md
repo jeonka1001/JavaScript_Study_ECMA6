@@ -228,9 +228,9 @@ console.log(`oriArr=${oriArr}, newArr=${newArr}`);
 ```
 출력 > **oriArr=100,2,3, newArr=100,2,3**  
 즉, 모든 값에 영향을 미친다.  
-이 경우는 원본의 경우 메모리가 클 수 있기 때문에 일일히 복사를 하지 않고 해당 객체 또는 배열의 **주소만 참조(얕은복사)** 하는 형식으로 복사가 되기 때문이다.  
+이 경우는 원본의 경우 메모리가 클 수 있기 때문에 일일히 복사를 하지 않고 해당 객체 또는 배열의 **주소만 참조(얕은복사)**하는 형식으로 복사가 되기 때문이다.  
 
-따라서 배열(객체)를 복사할 시 **객체 내 요소를 하나하나 복사(깊은복사)** 해야한다.  
+따라서 배열(객체)를 복사할 시 **객체 내 요소를 하나하나 복사(깊은복사)**해야한다.  
 ```
 
 function clone(obj){
@@ -244,7 +244,28 @@ var oriArr = [1,2,3];
 var newArr = clone(oriArr);
 oriArr[0] = 100;
 console.log(`oriArr=${oriArr}, newArr=${newArr}`);
-```
-출력값 > **oriArr=100,2,3, newArr=1,2,3**
 
+var oldA = {
+	a:'a',
+	b:'b',
+	toString : function(){
+		for(var key in this){
+			if(key != 'toString'){
+				console.log(`${key}:${this[key]}`);
+			}
+		}
+	}
+};
+var newA = clone(oldA);
+oldA.a = 'AA';
+oldA.toString();
+newA.toString();
+
+```
+출력값 >   
+**oriArr=100,2,3, newArr=1,2,3  
+a:AA  
+b:b  
+a:a  
+b:b**  
 
