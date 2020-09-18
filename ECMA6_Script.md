@@ -236,7 +236,7 @@ console.log(`oriArr=${oriArr}, newArr=${newArr}`);
 function clone(obj){
 	var output = [];
 	for(var index in obj){
-		output[index] = obj[index];
+		output[index] = obj[index]; // 배열 및 객체의 값을 하나하나 
 	}
 	return output;
 }
