@@ -180,3 +180,72 @@ console.log(multiply(1,2));
 console.log(multiply(3,4));
 ```
 출력값 : **2 12**
+
+
+## 옵션 객체 
+
+함수의 매개변수로 **객체를 전달**하는 경우 이 때 매개변수를 **옵션객체** 라고 한다.  
+
+이 객체를 초기화하기 위해서는 다음과 같이 한다.  
+```
+function test(options){
+	options.valueA = options.valueA || 10;
+	options.valueB = options.valueB || 20;
+
+	console.log(options.valueA + ':' + options.valueB);
+}
+
+test({
+	valueA : 52
+});
+```
+출력값 > **52 : 20**
+
+## 객체, 배열의 복사
+
+자료형|복사형태|원본값변경시  
+:--|--|:--
+기본자료형(숫자, 문자열, boolean...)|깊은복사|원본만 변경
+객체형 자료형(배열, 객체...)|얕은복사|원본 및 사본 둘 다 변경  
+
+즉, 위 표를 코드로 구현하면 다음과 같다.
+```
+var orig = 10;
+var newV = orig;
+
+orig = 200;
+console.log(`orig=${orig}, newV=${newV}`);
+```
+출력 > **orig=200, newV=10**  
+즉, 원본만 변경된다.  
+
+그러나 배열(객체) 의 경우는 다르다  
+```
+var oriArr = [1,2,3];
+var newArr = oriArr;
+
+oriArr[0] = 100;
+console.log(`oriArr=${oriArr}, newArr=${newArr}`);
+```
+출력 > **oriArr=100,2,3, newArr=100,2,3**  
+즉, 모든 값에 영향을 미친다.  
+이 경우는 원본의 경우 메모리가 클 수 있기 때문에 일일히 복사를 하지 않고 해당 객체 또는 배열의 **주소만 참조(얕은복사)**하는 형식으로 복사가 되기 때문이다.  
+
+따라서 배열(객체)를 복사할 시 **객체 내 요소를 하나하나 복사(깊은복사)**해야한다.  
+```
+
+function clone(obj){
+	var output = [];
+	for(var index in obj){
+		output[index] = obj[index];
+	}
+	return output;
+}
+var oriArr = [1,2,3];
+var newArr = clone(oriArr);
+oriArr[0] = 100;
+console.log(`oriArr=${oriArr}, newArr=${newArr}`);
+```
+출력값 > **oriArr=100,2,3, newArr=1,2,3**
+
+
