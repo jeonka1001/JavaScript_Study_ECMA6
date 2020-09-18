@@ -260,7 +260,6 @@ var newA = clone(oldA);
 oldA.a = 'AA';
 oldA.toString();
 newA.toString();
-
 ```
 출력값 >   
 **oriArr=100,2,3, newArr=1,2,3  
@@ -268,4 +267,3 @@ a:AA
 b:b  
 a:a  
 b:b**  
-
