@@ -292,4 +292,4 @@ const newArr = [...arrA,...arrB];
 console.log(`newArr : ${newArr}`);
 ```
 출력 >  **newArr : 1,2,3,4,5,6**  
-
+ 
